@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bank.Views.EnterCode"
+             Title="EnterCode">
+    <VerticalStackLayout>
+        <Entry Keyboard="Numeric" Text="{Binding CardId}" />
+        <Entry Keyboard="Numeric" IsPassword="True" Text="{Binding CardPassword}"/>
+        <Button Text="Check and Add" />
+    </VerticalStackLayout>
+</ContentPage>

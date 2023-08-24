@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bank.Views.Add"
+             Title="Add">
+    <HorizontalStackLayout Spacing="50" HorizontalOptions="Center">
+        <Border  Style="{StaticResource Border}"   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+            <Border.Shadow>
+                <Shadow Offset="10,10" Opacity="0.5" Radius="15" Brush="{AppThemeBinding Dark=White, Light=Black}"/>
+            </Border.Shadow>
+            <Grid>
+
+
+                <FlexLayout Direction="Column"  Margin="20" Padding="20, 0"  AlignContent="Center" JustifyContent="Center" >
+
+                    <FlexLayout.HeightRequest>
+                        <OnIdiom Desktop="100" Default="100"/>
+                    </FlexLayout.HeightRequest>
+                    <FlexLayout.WidthRequest>
+                        <OnIdiom Desktop="195" Default="125"/>
+                    </FlexLayout.WidthRequest>
+
+                    <Label  Text="Add Card" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FlexLayout.AlignSelf="Center" />
+                    <Label  Text="+" HeightRequest="50"  WidthRequest="50" FontSize="45" FlexLayout.AlignSelf="Center" HorizontalTextAlignment="Center" />
+
+                </FlexLayout>
+                <Button Style="{StaticResource BorderButton}" Command="{Binding Adding}"/>
+            </Grid>
+        </Border>
+        <Border  Style="{StaticResource Border}"   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+            <Border.Shadow>
+                <Shadow Offset="10,10" Opacity="0.5" Radius="15" Brush="{AppThemeBinding Dark=White, Light=Black}"/>
+            </Border.Shadow>
+            <Grid>
+
+
+                <FlexLayout Direction="Column"  Margin="20" Padding="20, 0"  AlignContent="Center" JustifyContent="Center" >
+
+                    <FlexLayout.HeightRequest>
+                        <OnIdiom Desktop="100" Default="100"/>
+                    </FlexLayout.HeightRequest>
+                    <FlexLayout.WidthRequest>
+                        <OnIdiom Desktop="195" Default="125"/>
+                    </FlexLayout.WidthRequest>
+
+                    <Label  Text="New Card" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FlexLayout.AlignSelf="Center" />
+                    <Label  Text="!" HeightRequest="50"  WidthRequest="50" FontSize="45" FlexLayout.AlignSelf="Center" HorizontalTextAlignment="Center"/>
+
+                </FlexLayout>
+                <Button Style="{StaticResource BorderButton}" Command="{Binding New}"/>
+            </Grid>
+        </Border>
+    </HorizontalStackLayout>
+</ContentPage>

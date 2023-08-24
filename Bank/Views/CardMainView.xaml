@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bank.Views.CardMainView"
+             xmlns:m="clr-namespace:Bank.Models"
+             Title="CardMainView">
+    <VerticalStackLayout Padding="30">
+        <SearchBar
+            x:Name="searchBar"
+              SearchCommand="{Binding Search}"           
+                   SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
+        <CollectionView ItemsSource="{Binding BankDatas}" >
+            <CollectionView.ItemsLayout >
+                <GridItemsLayout Orientation="Vertical" Span="{OnPlatform Android=1, Default=4}" HorizontalItemSpacing="5" VerticalItemSpacing="5"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="m:BankModel">
+
+                    <Grid ColumnDefinitions="*,*" BackgroundColor="{Binding colors}" MinimumHeightRequest="{OnPlatform Android=100 , Default=200}" MaximumHeightRequest="{OnPlatform Android=100 , Default=500}">
+                            <Grid Padding="10">
+                            <Frame  IsClippedToBounds="True" CornerRadius="{OnPlatform Android=40, Default=60}" BackgroundColor="White" HeightRequest="{OnPlatform Android=80, Default=120}" WidthRequest="{OnPlatform Android=80, Default=120}">
+                                <Image Background="Transparent" Source="{Binding Icon}" HeightRequest="{OnPlatform Android=40, Default=60}" WidthRequest="{OnPlatform Android=40, Default=60}"  Aspect="AspectFit" FlexLayout.AlignSelf="Center" />
+                            </Frame>
+                            </Grid>
+                            <Label Padding="10" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Grid.Column="1" Text="{Binding Name}" TextColor="White" />
+
+                            <Button Grid.ColumnSpan="2" Style="{StaticResource BorderButton} " BorderWidth="0"/>
+                        </Grid>
+                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

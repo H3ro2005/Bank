@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bank.Views.Main"
+             Title="Main"
+
+         >
+ 
+
+    <Grid RowDefinitions="1.5*,*,2*" BackgroundColor="{AppThemeBinding Light=White,Dark=Black}">
+        <Grid BackgroundColor="{AppThemeBinding Dark=DarkBlue, Light=Blue}">
+            <Button BorderWidth="0" Command="{Binding Exit}" Background="{AppThemeBinding Light=Blue,Dark=DarkBlue}" VerticalOptions="Start" HorizontalOptions="Start" Text="Leave" TextColor="{AppThemeBinding Dark=White, Light=Black}" HeightRequest="100" WidthRequest="100" />
+        </Grid>
+        <Grid Grid.Row="1" BackgroundColor="{AppThemeBinding Dark=#00002F, Light=White}"/>
+            <Border  StrokeThickness="0" StrokeShape="RoundRectangle 40" Background="{AppThemeBinding Dark=#00001F,Light=White}" Grid.RowSpan="2" HorizontalOptions="Center" VerticalOptions="Center" Padding="20">
+            <Border.Shadow>
+                <Shadow Offset="10,10" Opacity="0.5" Radius="15" Brush="{AppThemeBinding Dark=White, Light=Black}"/>
+            </Border.Shadow>
+                
+                <HorizontalStackLayout>
+                <Image Source="psyj.ico"  Aspect="AspectFit">
+                    <Image.HeightRequest>
+                        <OnIdiom Desktop="200" Default="150"/>
+                    </Image.HeightRequest>
+                    <Image.WidthRequest>
+                        <OnIdiom Desktop="250" Default="150"/>
+                    </Image.WidthRequest>
+                </Image>
+                <VerticalStackLayout>
+                        <Label Text="{Binding Name}"/>
+                        <Label Text="{Binding Surname}"/>
+                    </VerticalStackLayout>
+
+                </HorizontalStackLayout>
+           
+        </Border>
+    
+            <FlexLayout Wrap="Wrap" Direction="Row" BackgroundColor="{AppThemeBinding Dark=#00002F, Light=White}" Grid.Row="2"  JustifyContent="SpaceAround" AlignContent="SpaceAround" >
+
+            <Border  Style="{StaticResource Border}"   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                <Border.Shadow>
+                    <Shadow Offset="10,10" Opacity="0.5" Radius="15" Brush="{AppThemeBinding Dark=White, Light=Black}"/>
+                </Border.Shadow>
+                <Grid>
+                    
+
+                    <FlexLayout Background="Transparent" Direction="Column"  Margin="20" Padding="20, 0"  AlignContent="Center" JustifyContent="Center" >
+
+                        <FlexLayout.HeightRequest>
+                            <OnIdiom Desktop="100" Default="100"/>
+                        </FlexLayout.HeightRequest>
+                        <FlexLayout.WidthRequest>
+                            <OnIdiom Desktop="195" Default="125"/>
+                        </FlexLayout.WidthRequest>
+
+                        <Label Background="Transparent" Text="give money" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FlexLayout.AlignSelf="Center" />
+                        <Image Background="Transparent" Source="money.png" HeightRequest="50"  WidthRequest="50" Aspect="AspectFit" FlexLayout.AlignSelf="Center" />
+
+                    </FlexLayout>
+                    <Button Style="{StaticResource BorderButton}" Command="{Binding Exit}"/>
+                </Grid>
+            </Border>
+            <Border  Style="{StaticResource Border}"   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                <Border.Shadow>
+                    <Shadow Offset="10,10" Opacity="0.5" Radius="15" Brush="{AppThemeBinding Dark=White, Light=Black}"/>
+                </Border.Shadow>
+                <Grid>
+                   
+
+                    <FlexLayout Direction="Column"  Margin="20" Padding="20, 0"  AlignContent="Center" JustifyContent="Center" Background="TransParent" >
+
+                        <FlexLayout.HeightRequest>
+                            <OnIdiom Desktop="100" Default="100"/>
+                        </FlexLayout.HeightRequest>
+                        <FlexLayout.WidthRequest>
+                            <OnIdiom Desktop="195" Default="125"/>
+                        </FlexLayout.WidthRequest>
+
+                        <Label  Text="Cards" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FlexLayout.AlignSelf="Center" />
+                        <Image  Source="{AppThemeBinding Default=cred.png, Dark=cred.png, Light=cred.png}" HeightRequest="50"  WidthRequest="50" Aspect="AspectFit" FlexLayout.AlignSelf="Center" />
+
+                    </FlexLayout>
+                    <Button Style="{StaticResource BorderButton}" Command="{Binding Card}"/>
+                </Grid>
+            </Border>
+            <Border  Style="{StaticResource Border}"   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                <Border.Shadow>
+                    <Shadow Offset="10,10" Opacity="0.5" Radius="15" Brush="{AppThemeBinding Dark=White, Light=Black}"/>
+                </Border.Shadow>
+                <Grid>
+                 
+
+                    <FlexLayout Direction="Column"  Margin="20" Padding="20, 0"  AlignContent="Center" JustifyContent="Center" >
+
+                        <FlexLayout.HeightRequest>
+                            <OnIdiom Desktop="100" Default="100"/>
+                        </FlexLayout.HeightRequest>
+                        <FlexLayout.WidthRequest>
+                            <OnIdiom Desktop="195" Default="125"/>
+                        </FlexLayout.WidthRequest>
+
+                        <Label  Text="Deep info" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FlexLayout.AlignSelf="Center" />
+                        <Image  Source="money.png" HeightRequest="50"  WidthRequest="50" Aspect="AspectFit" FlexLayout.AlignSelf="Center" />
+
+                    </FlexLayout>
+                    <Button Style="{StaticResource BorderButton}" Command="{Binding Exit}"/>
+                </Grid>
+            </Border>
+            <Border  Style="{StaticResource Border}"   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                    <Border.Shadow>
+                        <Shadow Offset="10,10" Opacity="0.5" Radius="15" Brush="{AppThemeBinding Dark=White, Light=Black}"/>
+                    </Border.Shadow>
+                    <Grid>
+                     
+
+                        <FlexLayout Direction="Column"  Margin="20" Padding="20, 0"  AlignContent="Center" JustifyContent="Center" >
+
+                        <FlexLayout.HeightRequest>
+                                <OnIdiom Desktop="100" Default="100"/>
+                            </FlexLayout.HeightRequest>
+                        <FlexLayout.WidthRequest>
+                                <OnIdiom Desktop="195" Default="125"/>
+                            </FlexLayout.WidthRequest>
+
+                        <Label  Text="Cources" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FlexLayout.AlignSelf="Center" />
+                        <Image  Source="money.png" HeightRequest="50"  WidthRequest="50" Aspect="AspectFit" FlexLayout.AlignSelf="Center" />
+
+                        </FlexLayout>
+                    <Button Style="{StaticResource BorderButton}" Command="{Binding Rate}"/>
+                </Grid>
+                </Border>
+
+            </FlexLayout>
+
+    </Grid>
+  
+
+</ContentPage>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bank.Views.BankView" 
+             xmlns:m ="clr-namespace:Bank.Models"    
+             xmlns:vm ="clr-namespace:Bank.ViewModels"
+             Title="BankView">
+    <ScrollView   Orientation="{OnPlatform Android=Both,iOS=Both,Default=Vertical}" >
+        <VerticalStackLayout Padding="{OnPlatform Android=0 ,iOS=0, Default=50}">
+
+        <CollectionView SelectionMode="None" ItemsSource="{Binding BankDatas}">
+            <CollectionView.Header>
+                <Grid IsClippedToBounds="True">
+                        <Grid.ColumnDefinitions>
+                            <OnPlatform Default="*,3*,2*,2*,2*" Android="100,300,200,200,200">
+                        </OnPlatform>
+                        </Grid.ColumnDefinitions>
+
+                        <Frame Grid.Column="0"  CornerRadius="0">
+                            <Label Text="Icon" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                    </Frame>
+                    <Frame  Grid.Column="1"   CornerRadius="0">
+                            <Grid>
+                        <Label Text="Name" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                <Button BackgroundColor="Transparent" Command="{Binding Sorting}" CommandParameter="{x:Static vm:Bank.Name}"/>
+                            </Grid>
+                        </Frame>
+                    <Frame Padding="0" Grid.Column="2" CornerRadius="0" IsClippedToBounds="True">
+                        <Grid RowDefinitions="*,*" ColumnDefinitions="*,*" >
+                            <Frame Grid.ColumnSpan="2" CornerRadius="0">
+                                    <Label Text="RUR" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            </Frame>
+                                
+                                <Frame  IsClippedToBounds="True" Grid.Row="1" CornerRadius="0">
+                                    <Grid>
+                                        <Label Text="Buy" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                        <Button BorderColor="Transparent" BackgroundColor="Transparent" Command="{Binding Sorting}" CommandParameter="{x:Static vm:Bank.RB}"/>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame  IsClippedToBounds="True" Grid.Row="1" Grid.Column="1" CornerRadius="0">
+                                    <Grid>
+                                        <Label Text="Sell" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                        <Button BorderColor="Transparent" BackgroundColor="Transparent" Command="{Binding Sorting}" CommandParameter="{x:Static vm:Bank.RS}"/>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+
+                    </Frame>
+                    <Frame Padding="0" Grid.Column="3" CornerRadius="0" IsClippedToBounds="True">
+                        <Grid RowDefinitions="*,*" ColumnDefinitions="*,*" >
+                            <Frame Grid.ColumnSpan="2" CornerRadius="0">
+                                    <Label Text="EUR" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            </Frame>
+                                <Frame  IsClippedToBounds="True" Grid.Row="1" CornerRadius="0">
+                                    <Grid>
+                                        <Label Text="Buy" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                        <Button BorderColor="Transparent" BackgroundColor="Transparent" Command="{Binding Sorting}" CommandParameter="{x:Static vm:Bank.EB}"/>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame  IsClippedToBounds="True" Grid.Row="1" Grid.Column="1" CornerRadius="0">
+                                    <Grid>
+                                        <Label Text="Sell" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                        <Button BorderColor="Transparent" BackgroundColor="Transparent" Command="{Binding Sorting}" CommandParameter="{x:Static vm:Bank.ES}"/>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+
+                    </Frame>
+                    <Frame Padding="0" Grid.Column="4" CornerRadius="0" IsClippedToBounds="True">
+                        <Grid RowDefinitions="*,*" ColumnDefinitions="*,*" >
+                            <Frame Grid.ColumnSpan="2" CornerRadius="0">
+                                    <Label Text="USD" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            </Frame>
+                                <Frame  IsClippedToBounds="True" Grid.Row="1" CornerRadius="0">
+                                    <Grid>
+                                        <Label Text="Buy" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                        <Button BorderColor="Transparent" BackgroundColor="Transparent" Command="{Binding Sorting}" CommandParameter="{x:Static vm:Bank.DB}"/>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame  IsClippedToBounds="True" Grid.Row="1" Grid.Column="1" CornerRadius="0">
+                                    <Grid>
+                                        <Label Text="Sell" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                        <Button BorderColor="Transparent" BackgroundColor="Transparent" Command="{Binding Sorting}" CommandParameter="{x:Static vm:Bank.DS}"/>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+
+                    </Frame>
+                </Grid>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="m:BankModel" >
+                        <Grid  IsClippedToBounds="True" >
+                            <Grid.ColumnDefinitions>
+                                <OnPlatform Default="*,3*,2*,2*,2*" Android="100,300,200,200,200">
+                                </OnPlatform>
+                            </Grid.ColumnDefinitions>
+                            <Frame  IsClippedToBounds="True" Grid.Column="0"  CornerRadius="0">
+                                <Image   Source="{Binding Icon}" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center"/>
+                            </Frame>
+                            <Frame Padding="0" Grid.Column="1"   CornerRadius="0">
+                                <Label Text="{Binding ShortName}" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            </Frame>
+                            <Frame Padding="0" Grid.Column="2" CornerRadius="0" IsClippedToBounds="True">
+                                <Grid ColumnDefinitions="*,*" >
+                                    <Frame  CornerRadius="0">
+                                        <Label Text="{Binding brubli}" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </Frame>
+                                    <Frame  Grid.Column="1" CornerRadius="0">
+                                        <Label Text="{Binding srubli}" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </Frame>
+                                </Grid>
+                            </Frame>
+                            <Frame Padding="0" Grid.Column="3" CornerRadius="0" IsClippedToBounds="True">
+                                <Grid ColumnDefinitions="*,*" >
+                                    <Frame  CornerRadius="0">
+                                        <Label Text="{Binding beuro}" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </Frame>
+                                    <Frame  Grid.Column="1" CornerRadius="0">
+                                        <Label Text="{Binding seuro}" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </Frame>
+                                </Grid>
+                            </Frame>
+                            <Frame Padding="0" Grid.Column="4" CornerRadius="0" IsClippedToBounds="True">
+                                <Grid ColumnDefinitions="*,*" >
+                                    <Frame  CornerRadius="0">
+                                        <Label Text="{Binding bdolar}" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </Frame>
+                                    <Frame  Grid.Column="1" CornerRadius="0">
+                                        <Label Text="{Binding sdolar}" FontSize="{OnPlatform Android=Small, iOS=Small, Default=Medium}"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </Frame>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
